@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity Login Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card">
+      <h1>Secure Login Demo</h1>
+      <p class="subtitle">
+        A JavaScript authentication simulation with common web security demonstrations.
+      </p>
+
+      <div id="authSection">
+        <div class="tabs">
+          <button id="showRegister" class="active">Register</button>
+          <button id="showLogin">Login</button>
+        </div>
+
+        <form id="registerForm">
+          <h2>Create Account</h2>
+
+          <label for="registerUsername">Username</label>
+          <input type="text" id="registerUsername" required />
+
+          <label for="registerPassword">Password</label>
+          <input type="password" id="registerPassword" required />
+
+          <p id="passwordStrength">Password strength: none</p>
+
+          <button type="submit">Register</button>
+        </form>
+
+        <form id="loginForm" class="hidden">
+          <h2>Login</h2>
+
+          <label for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" required />
+
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required />
+
+          <button type="submit">Login</button>
+        </form>
+
+        <p id="authMessage"></p>
+      </div>
+
+      <div id="dashboard" class="hidden">
+        <div class="dashboardHeader">
+          <h2>Cybersecurity Dashboard</h2>
+          <button id="logoutButton">Logout</button>
+        </div>
+
+        <p id="welcomeMessage"></p>
+
+        <section class="demoBox">
+          <h3>1. Brute-Force Attack Simulation</h3>
+          <p>
+            This shows how repeated failed login attempts can trigger a temporary lockout.
+          </p>
+
+          <button id="runBruteForce">Run Simulation</button>
+          <pre id="bruteForceOutput"></pre>
+        </section>
+
+        <section class="demoBox">
+          <h3>2. Weak Password Detection</h3>
+          <p>
+            Enter a password to see whether it would be considered weak or strong.
+          </p>
+
+          <input type="text" id="passwordTester" placeholder="Try a password..." />
+          <p id="passwordTestResult"></p>
+        </section>
+
+        <section class="demoBox">
+          <h3>3. XSS Demo and Mitigation</h3>
+          <p>
+            This demonstrates why user input should be escaped before being displayed.
+          </p>
+
+          <input type="text" id="xssInput" placeholder="Type something like <h1>Hello</h1>" />
+
+          <div class="xssGrid">
+            <div>
+              <h4>Unsafe HTML Preview</h4>
+              <iframe id="unsafePreview" sandbox=""></iframe>
+            </div>
+
+            <div>
+              <h4>Safe Escaped Output</h4>
+              <div id="safeOutput" class="outputBox"></div>
+            </div>
+          </div>
+
+          <button id="runXssDemo">Test Input</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
